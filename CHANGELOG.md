@@ -1,3 +1,14 @@
+## [1.19.0] - 2026-11-16
+
+### Agregado
+* Se creó el proyecto del servidor duplicando el proyecto del juego.
+
+### Modificado
+* Se cambió el nombre de la aplicación a "ManBotSurvivor-Server" para que no choque con el cliente en Eclipse.
+* Se cambió el título de la ventana a "ManBot Survivor - Server".
+* El servidor sigue ejecutándose aunque la ventana se minimice o pierda el foco.
+* La opción "NUEVA PARTIDA" del menú pasó a llamarse "INICIAR SERVIDOR".
+
 ## [1.18.1] - 2026-11-13
 
 ### Modificado

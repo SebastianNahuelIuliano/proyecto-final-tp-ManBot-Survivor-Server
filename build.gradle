@@ -59,7 +59,7 @@ configure(subprojects) {
 
 subprojects {
   version = "$projectVersion"
-  ext.appName = 'ManBot Survivor'
+   ext.appName = 'ManBotSurvivor-Server'
   repositories {
     mavenCentral()
     // You may want to remove the following line if you have errors downloading dependencies.
@@ -68,4 +68,4 @@ subprojects {
     maven { url = 'https://jitpack.io' }
   }
 }
-eclipse.project.name = 'ManBot Survivor' + '-parent'
+eclipse.project.name = 'ManBotSurvivor-Server' + '-parent'
