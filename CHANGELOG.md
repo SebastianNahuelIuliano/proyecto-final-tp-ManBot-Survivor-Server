@@ -1,3 +1,20 @@
+## [1.21.0] - 2026-11-16
+
+### Agregado
+
+* Incorporación de HiloServer, que recibe los paquetes UDP de los clientes en un hilo aparte.
+* Respuesta a la búsqueda por broadcast para que los clientes encuentren el servidor sin escribir la IP.
+* Asignación del número de jugador, límite de 2 clientes y cuenta regresiva antes de empezar.
+* Comprobación de conexión (estasAhi/estoyAca) y desconexión por timeout de 5 segundos.
+* Soporte para jugar otra vez (JUGAR_OTRA), volver al menú (FIN_SESION) y reconexión a mitad de partida.
+* Aviso a los clientes cuando el servidor se cierra.
+* Método aplicarTeclasRemotas en ControladorEntrada para mover a los jugadores con las teclas recibidas por red.
+
+### Modificado
+
+* Manejo del puerto ocupado sin cerrar el programa.
+* El error "Connection reset" de Windows no detiene el hilo del servidor.
+
 ## [1.20.0] - 2026-11-16
 
 ### Agregado

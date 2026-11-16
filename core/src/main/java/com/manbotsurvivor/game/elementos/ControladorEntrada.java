@@ -131,6 +131,13 @@ public class ControladorEntrada extends InputAdapter {
 
         return true;
     }
+    
+    public void aplicarTeclasRemotas(boolean arriba, boolean abajo, boolean izquierda, boolean derecha) {
+        this.arriba = arriba;
+        this.abajo = abajo;
+        this.izquierda = izquierda;
+        this.derecha = derecha;
+    }
 
     public boolean estaArriba() {
         return arriba;
