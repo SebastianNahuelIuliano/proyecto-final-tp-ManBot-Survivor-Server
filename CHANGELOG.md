@@ -1,0 +1,595 @@
+## [1.18.1] - 2026-11-13
+
+### Modificado
+* Se modifico el jugador 2.
+* Se modifico el rango de disparo
+
+## [1.18.0] - 2026-11-13
+
+### Agregado
+* Se incorporo otro jugador.
+* Se incorporo las teclas del otro jugador.
+
+
+## [1.17.3] - 2026-11-13
+
+### Modificado
+* Se Modifico el escalado de dificultad por oleadas a dos minutos.
+* Se achico las letras del menu de pausa.
+
+## [1.17.2] - 2026-11-12
+
+### Modificado
+* Se Modifico el Mapa.
+* Se actualizo el Hub.
+* Se modifico el zoom de la Camara.
+
+## [1.17.1] - 2026-11-12
+
+### Agregado
+* Incorporación de sprite de granada y su explosion.
+* Incorporación de sprite de NanoBot.
+* Incorporación de sprite de RobotTanque.
+* Incorporación de sprite de Jefe Mecanico.
+
+### Modificado
+* Cambio en el tamaño de RobotTanque y Jefe Mecanico.
+* Actualizacion del sprite del Drone.
+* Reorganizacion de paquetes.
+
+## [1.17.0] - 2026-11-03
+
+### Agregado
+* Incorporación de JefeMecanico como enemigo final.
+* Aparición del jefe a los 15 minutos de juego efectivo.
+* Implementación de la condición de victoria al derrotar al jefe.
+* Incorporación de GestorOleadas para centralizar la generación de enemigos.
+
+### Modificado
+* Refactorización de PantallaJuego para delegar la lógica de oleadas.
+* Integración del jefe con el sistema de combate y la gestión de entidades.
+* Detención de las oleadas normales cuando aparece el jefe.
+
+## [1.16.0] - 2026-11-03
+
+### Agregado
+* Incorporación de PanelResultado para mostrar las estadísticas finales.
+* Visualización del tiempo de supervivencia, bajas y nivel alcanzado.
+* Incorporación de la opción de volver al menú principal.
+
+### Modificado
+* Integración del panel de resultados con los estados de partida existentes.
+* Bloqueo de la actualización del juego después de la derrota o victoria.
+
+## [1.15.0] - 2026-11-01
+
+### Agregado
+
+* Incorporación de la enumeración Mejora.
+* Implementación de GestorProgresion para gestionar la selección de mejoras.
+* Incorporación de SelectorMejoras para mostrar las opciones disponibles.
+* Incorporación de la selección de mejoras mediante las teclas 1, 2 y 3.
+* Implementación de la pausa durante la selección de mejoras.
+
+### Modificado
+
+* Integración de la progresión con el sistema de pausa existente.
+* Validación de mejoras según el nivel actual de las armas.
+
+## [1.14.1] - 2026-11-01
+
+### Agregado
+
+* Implementación del nivel del jugador y de los niveles pendientes.
+* Procesamiento de experiencia acumulada y conservación del excedente.
+* Incorporación del nivel actual y el umbral de experiencia al HUD.
+* Incorporación de mejoras de curación y velocidad.
+
+### Modificado
+
+* Actualización de Jugador para procesar una o varias subidas de nivel.
+
+## [1.14.0] - 2026-10-31
+
+### Agregado
+
+* Incorporación de Granada como arma automática de área.
+* Implementación del radio de explosión y el daño a múltiples enemigos.
+* Incorporación de un efecto visual temporal de explosión
+
+### Modificado
+
+* Integración de la granada en SistemaCombate.
+* Uso de los parámetros específicos de cada arma para calcular sus ataques.
+* Refactorización de SistemaCombate para administrar múltiples proyectiles.
+* Conservación de la detección de impactos y del objetivo más cercano.
+
+## [1.13.0] - 2026-10-30
+
+### Agregado
+
+* Incorporación de la clase abtracta arma.
+* Incorporación del Laser con tres niveles de mejora.
+* Implementación de mejoras de daño y frecuencia de ataque.
+
+## [1.12.0] - 2026-10-21
+
+### Agregado
+
+- Implementación de un sistema de oleadas automáticas de enemigos.
+- Generación progresiva de enemigos según el número de oleada.
+- Incorporación de un tiempo de espera de 2 segundos entre oleadas.
+- Generación aleatoria de posiciones para los enemigos, comprobando colisiones con el mapa y distancia respecto al jugador.
+
+### Modificado
+
+- Se incorporó un sistema de escalado de dificultad que aumenta progresivamente la velocidad y la vida de los enemigos.
+- Se reemplazó la creación fija de enemigos por un sistema de generación dinámica.
+- Se mantuvo la integración con el sistema de combate y el gestor de entidades existente.
+- Se ocultó el número de oleada y el mensaje de transición para que el jugador no conozca la oleada actual.
+- Se mantuvo el funcionamiento de las oleadas en segundo plano, sin mostrar información adicional en pantalla.
+
+## [1.11.14] - 2026 - 10 - 21
+
+### Agregado
+
+* Incorporación de la clase NanoBot como nuevo tipo de enemigo.
+* Configuración de baja vida, alta velocidad y daño propio para los Nano-bots.
+* Incorporación de un efecto visual de color cian para diferenciar a los Nano-bots.
+* Incorporación de un enjambre de seis Nano-bots en PantallaJuego.
+
+### Modificado
+
+* Actualización de PantallaJuego para incorporar el enjambre de Nano-bots.
+* Integración de los Nano-bots con el sistema de persecución, colisiones con el mapa, combate y generación de chips de energía.
+* Incorporación de la liberación de los recursos gráficos de NanoBot.
+
+## [1.11.13] - 2026 - 10 - 21
+
+### Agregado
+
+* Incorporación de la clase RobotTanque como nuevo tipo de enemigo.
+* Configuración de vida, velocidad y daño propios para el RobotTanque.
+* Incorporación de una animación y administración de recursos gráficos para el nuevo enemigo.
+
+### Modificado
+
+* Actualización de PantallaJuego para incorporar al RobotTanque junto con los DroneBasico existentes.
+* Integración del RobotTanque con el sistema de persecución, colisiones con el mapa, combate y liberación de recursos.
+
+## [1.11.12] - 2026 - 10 - 21
+
+### Agregado
+
+* Incorporación de la clase DroneBasico como implementación concreta del enemigo Drone básico.
+* Incorporación de la carga y administración de la textura y animación propias del Drone básico.
+
+### Modificado
+
+* Refactorización de Enemigo como clase abstracta para centralizar los atributos y comportamientos comunes de los enemigos.
+* Actualización de PantallaJuego para crear instancias de DroneBasico y liberar sus recursos gráficos.
+* Conservación del movimiento, la persecución, las colisiones y el daño mediante la clase padre Enemigo.
+
+## [1.11.11] - 2026 - 10 - 21
+
+### Agregado
+
+* Incorporación de la enumeración EstadoPartida para representar los estados de partida en curso, pausada, derrota y victoria.
+* Incorporación de la clase GestorPartida para centralizar el estado de la partida y administrar sus contadores de tiempo.
+* Implementación de un contador de tiempo transcurrido y otro de tiempo efectivo de juego.
+* Incorporación de mensajes visuales para indicar la derrota y la victoria.
+
+### Modificado
+
+* Actualización de PantallaJuego para delegar en GestorPartida el control del estado y la detección de derrota.
+* Actualización del sistema de pausa para utilizar los estados centralizados de la partida.
+* Actualización de Hud para mostrar el tiempo efectivo de juego y el tiempo transcurrido.
+* Preparación del sistema para incorporar futuras condiciones de victoria y finalización de la partida.
+
+## [1.11.10] - 2026-10-18
+
+### Modificado
+
+* Reorganización del paquete elementos bajo com.manbotsurvivor.game.elementos.
+* Reorganización del paquete pantallas bajo com.manbotsurvivor.game.pantallas.
+* Reorganización del paquete escenas bajo com.manbotsurvivor.game.escenas.
+* Actualización de las declaraciones de paquetes y los imports para reflejar la nueva estructura del proyecto.
+
+## [1.11.9] - 2026-10-15
+
+### Agregado
+
+* Incorporación de la clase GestorEntidades para centralizar la gestión de enemigos eliminados y chips de energía.
+* Implementación de la generación de chips de energía al eliminar enemigos.
+
+### Modificado
+
+* Actualización de PantallaJuego para delegar en GestorEntidades la eliminación de enemigos muertos y la recolección de chips.
+* Centralización de la actualización de las listas de enemigos y chips.
+* Conservación del registro de enemigos eliminados y de la experiencia obtenida al recoger chips.
+
+## [1.11.8] - 2026-10-15
+
+### Agregado
+
+* Incorporación de la clase SistemaCombate para centralizar la lógica del combate automático.
+* Implementación de la actualización y el dibujo de los disparos desde el nuevo sistema de combate.
+
+### Modificado
+
+* Actualización de PantallaJuego para delegar en SistemaCombate la selección del enemigo más cercano, la generación de disparos, el movimiento de proyectiles y la comprobación de impactos.
+* Conservación del intervalo de ataque automático de 1,5 segundos y del daño de 1 punto por impacto.
+* Integración del sistema de combate con la lista de enemigos y el jugador existentes.
+* Conservación del funcionamiento de la pausa, la eliminación de enemigos muertos y la recolección de chips de energía.
+
+
+##[1.11.7] - 2026-10-15
+
+### Modificado
+
+* Desacoplamiento de PantallaMenu, PantallaOpciones y PantallaJuego de la clase principal ManBotSurvivor.
+* Incorporación de la interfaz NavegacionPantallas para centralizar las solicitudes de navegación entre pantallas.
+* Encapsulamiento de los recursos SpriteBatch y GestorAudio en ManBotSurvivor.
+* Actualización de los constructores de las pantallas para recibir explícitamente sus dependencias.
+* Centralización de la creación y el cambio de pantallas en ManBotSurvivor.
+* Conservación de las funcionalidades existentes de navegación, pausa y configuración de audio.
+
+
+## [1.11.7] - 2026-10-12
+
+
+### Modificado
+
+* Se unificó la versión declarada en gradle.properties con la versión del changelog.
+* Se corrigió el redimensionamiento de PantallaJuego para actualizar también el HUD.
+
+### Eliminado
+
+* Se eliminó la clase Imagen, que estaba vacía y no tenía referencias en el código revisado.
+
+### Verificado
+
+* Se comprobó que los atributos final respetan la convención de nombres establecida.
+
+
+## [1.11.6] - 2026-10-03
+
+### Modificado
+
+* Se modificó el movimiento de los enemigos en Enemigo.java.
+* Se eliminó la comprobación de colisión con el jugador al calcular el movimiento.
+* Ahora los enemigos pueden superponerse con el jugador.
+* Se mantiene la detección de colisiones con el mapa y con otros enemigos.
+* Se permite que intentarHacerDaño() detecte correctamente la superposición de los hitboxes.
+* Se corrigió el problema por el cual el jugador no recibía daño al quedarse quieto frente a un enemigo.
+
+## [1.11.5] - 2026-09-21
+
+### Modificado
+
+* Correccion del movimiento diagonal del jugador para mantener una velocidad uniforme en todas las direcciones.
+* Correccion del movimiento diagonal de los enemigos para evitar que su velocidad aumente al perseguir en diagonal.
+* Normalizacion del movimiento del jugador y de los enemigos.
+
+## [1.11.4] - 2026-09-21
+
+### Modificado
+
+* Unificacion del manejo de entradas en las pantallas del juego mediante `ControladorEntrada`.
+* Correccion del manejo de entradas de `PantallaMenu` para evitar consultas directas a `Gdx.input`.
+* Correccion del manejo de entradas de `PantallaOpciones` para utilizar `ControladorEntrada`.
+* Incorporacion del manejo de las teclas de navegacion y ENTER dentro de `ControladorEntrada`.
+
+## [1.11.3] - 2026-09-21
+
+### Modificado
+
+* Correccion del sistema de disparo para aplicar el daño al enemigo solamente cuando el proyectil impacta.
+* Correccion de la logica de ataque para separar la creacion del proyectil de la aplicacion del daño.
+* Ajuste de la deteccion de colisiones entre proyectiles y enemigos.
+
+## [1.11.2] - 2026-09-21
+
+### Modificado
+
+* Correccion de la carga de texturas de los enemigos para evitar cargar una copia de `dronebasico.png` por cada instancia.
+* Implementacion de una textura compartida entre los enemigos.
+* Correccion de la liberacion de la textura compartida para evitar que los enemigos restantes pierdan su textura al eliminar un enemigo.
+* Correccion de la recarga de la textura al iniciar una nueva partida.
+
+## [1.11.1] - 2026-09-20
+
+### Modificado
+
+* Se unificó la convención de nombres de los atributos final de la clase Jugador, utilizando mayúsculas y guiones bajos.
+
+* Se unificó la convención de nombres de los atributos final de la clase Enemigo, utilizando mayúsculas y guiones bajos.
+
+* Se unificó la convención de nombres del atributo final de PantallaJuego, utilizando mayúsculas y guiones bajos.
+
+* Se unificó la convención de nombres de los atributos final de PantallaMenu, utilizando mayúsculas y guiones bajos.
+
+* Se actualizaron las referencias a los atributos modificados para mantener el funcionamiento del proyecto.
+
+## [1.11.0] - 2026-09-20
+
+### Modificado
+
+* Se modificó el método setScreen() de ManBotSurvivor para liberar los recursos de la pantalla anterior al cambiar de pantalla.
+
+* Se modificó el método dispose() de ManBotSurvivor para liberar los recursos de la pantalla actual al cerrar el juego.
+
+* Se agregó el método disponer() a la clase Enemigo para liberar la textura utilizada por cada enemigo.
+
+* Se modificó PantallaJuego para liberar las texturas de los enemigos al ser eliminados.
+
+* Se modificó el método dispose() de PantallaJuego para liberar los recursos restantes de la pantalla, incluyendo los enemigos activos, el HUD y la fuente de pausa.
+
+* Se mantuvo la separación de responsabilidades entre los recursos compartidos del juego y los recursos propios de cada pantalla.
+
+## [1.10.2] - 2026-09-20
+
+### Modificado
+* Se encapsuló el atributo stage de la clase Hud, cambiando su visibilidad de pública a privada.
+* Se agregó el método dibujar() para permitir que PantallaJuego solicite el renderizado del HUD sin acceder directamente a su Stage.
+* Se agregó el método resize() para actualizar el Viewport del HUD cuando cambia el tamaño de la ventana.
+* Se agregó el método obtenerCamara() para permitir que PantallaJuego utilice la cámara del HUD sin acceder directamente a su Stage.
+* Se agregó el método disponer() para liberar los recursos propios del HUD, incluyendo el Stage y la fuente utilizada.
+* Se modificó PantallaJuego para utilizar los nuevos métodos del HUD en lugar de acceder directamente a sus atributos internos.
+
+## [1.10.1] - 2026-09-18
+
+### Modificado
+
+* Correccion del Git Clone y actualizacion de estado del proyecto en el README.
+* Sincronizacion de la version establecida en el CHANGELOG con la version de gradle.properties.
+
+
+## [1.10.0] - 2026-09-04
+
+### Agregado
+
+* Incorporación de música de fondo mediante el archivo Boss Battle.wav.
+* Creación de la clase GestorAudio para administrar la música del juego.
+
+### Modificado
+
+* Se agregó un sistema de control de volumen desde la pantalla de opciones.
+* El volumen puede aumentarse o disminuirse en intervalos del 10%.
+* Se agregó una representación visual del volumen mediante una barra y un porcentaje.
+* Se agregó la opción para silenciar y volver a activar el audio.
+* El sistema conserva el nivel de volumen seleccionado al volver a activar el audio.
+* La música se mantiene reproduciéndose al cambiar entre el menú y la partida.
+
+## [1.9.0] - 2026-09-04
+
+### Agregado
+
+* Incorporación de una nueva pantalla de opciones accesible desde el menú principal.
+* Incorporación de la opción para regresar al menú principal desde la pantalla de opciones.
+* Incorporación de indicaciones visuales para volver al menú desde la pantalla de opciones.
+* Incorporación de la opción de pausa durante la partida mediante la tecla ESC.
+* Incorporación de la opción para volver al menú principal desde la pantalla de pausa mediante la tecla M.
+
+### Modificado
+
+* Actualización del menú principal para permitir el acceso a la pantalla de opciones.
+* Actualización del manejo de entradas para controlar la pausa, reanudación y regreso al menú principal.
+* Actualización del manejo de la tecla M para evitar que una pulsación realizada durante la partida quede pendiente al entrar en pausa.
+* Actualización de la navegación entre las diferentes pantallas y estados del juego.
+
+## [1.8.1] - 2026-09-04
+
+### Modificado
+- Actualización del menú principal.
+- Eliminación del título "MANBOT SURVIVOR".
+- Reubicación de las opciones del menú para mejorar su distribución visual.
+- Ajuste del tamaño de fuente de las opciones.
+- Uso del fondo `fondo_menu.png` en el menú principal.
+
+## [1.8.0] - 2026-09-04
+
+### Agregado
+
+* Incorporación de contador de enemigos eliminados en el HUD.
+* Incorporación de registro de enemigos eliminados en Jugador.
+
+### Modificado
+
+* Actualización del tiempo de supervivencia para mostrarlo en formato MM:SS.
+* Actualización en tiempo real de la vida del jugador en el HUD.
+* Actualización en tiempo real de la experiencia del jugador en el HUD.
+* Actualización en tiempo real del tiempo de supervivencia.
+* Actualización en tiempo real del contador de enemigos eliminados.
+
+## [1.7.2] - 2026-09-04
+
+### Agregado
+
+* Incorporación de hitboxes para los enemigos.
+* Implementación de colisiones entre enemigos para evitar que se superpongan.
+* Incorporación de un sistema de daño de los enemigos hacia ManBot.
+* Incorporación de un tiempo de espera entre daños para evitar múltiples impactos por segundo.
+* Incorporación del sistema de vida de ManBot, con una vida máxima de 100 puntos.
+
+### Modificado
+
+* Actualización de Enemigo para comprobar colisiones con otros enemigos durante su movimiento.
+* Actualización de Enemigo para detectar el contacto con ManBot y aplicar daño.
+* Actualización de Jugador para administrar su vida actual y vida máxima.
+* Actualización del movimiento de los enemigos para mantener separadas sus hitboxes.
+
+## [1.7.1] - 2026-09-04
+
+### Agregado
+
+* Incorporación de spritesheet animado para los enemigos.
+* Incorporación de una representación visual para los disparos.
+* Implementación de detección de colisión entre el disparo y el enemigo.
+* Implementación de colisión entre los enemigos y ManBot.
+
+### Modificado
+
+* Actualización de Enemigo para utilizar animaciones mediante spritesheet.
+* Actualización del movimiento de los enemigos para evitar atravesar al jugador.
+* Actualización del sistema de disparo para comprobar colisiones con los enemigos.
+
+## [1.7.0] - 2026-09-04
+
+### Agregado
+
+* Implementación del ataque automático de ManBot hacia el enemigo más cercano.
+* Incorporación de un intervalo de 1,5 segundos entre ataques.
+* Implementación del sistema de daño y eliminación de enemigos.
+* Incorporación de los chips de energía al derrotar enemigos.
+* Implementación de la recolección de chips mediante colisión con ManBot.
+* Incorporación del sistema de experiencia obtenida al recoger chips.
+* Implementación de 10 puntos de experiencia por cada chip recogido.
+* Representación temporal de los chips de energía mediante ShapeRenderer.
+
+### Modificado
+
+* Actualización de PantallaJuego para administrar los chips de energía.
+* Incorporación de métodos en Jugador para obtener su ancho y alto.
+* Actualización del sistema de eliminación de enemigos para generar un chip de energía al derrotarlos.
+* Actualización del sistema de renderizado para mostrar los chips de energía.
+* Actualización del sistema de interacción para eliminar los chips una vez recogidos.
+
+## [1.6.2] - 2026-09-04
+
+### Agregado
+
+* Incorporación de un ArrayList para gestionar múltiples enemigos.
+* Implementación de la detección del enemigo más cercano a ManBot.
+* Implementación del cálculo de distancia entre ManBot y los enemigos.
+
+### Modificado
+
+* Actualización de PantallaJuego para recorrer y actualizar múltiples enemigos.
+* Actualización de PantallaJuego para dibujar múltiples enemigos.
+
+## [1.6.1] - 2026-09-02
+
+### Agregado
+
+* Integración del enemigo dentro de PantallaJuego.
+* Actualización del enemigo en cada ciclo del juego.
+* Incorporación del dibujo temporal del enemigo mediante ShapeRenderer.
+* Implementación de colisiones entre el enemigo y los obstáculos del mapa.
+
+### Modificado
+
+* Actualización de Enemigo para recibir una referencia al mapa.
+* Modificación del movimiento del enemigo para comprobar colisiones antes de cambiar su posición.
+* Actualización de PantallaJuego para crear, actualizar y dibujar al enemigo.
+* Incorporación de la liberación de los recursos utilizados para dibujar al enemigo.
+
+## [1.6.0] - 2026-08-31
+
+### Añadido
+- Implementación de la clase `Enemigo`.
+- Incorporación de los datos básicos necesarios para representar enemigos.
+- Preparación de la estructura del enemigo para su integración con el jugador y el mapa.
+
+### Modificado
+- Actualización de `Jugador.java` para preparar la interacción con los enemigos.
+
+## [1.5.0] - 2026-08-31
+
+### Agregado
+
+* Implementación de la carga y renderizado del mapa mediante Tiled.
+* Incorporación de la clase Mapa para gestionar el mapa y sus elementos.
+* Implementación de la capa de obstáculos para detectar colisiones.
+* Incorporación de colisiones entre el jugador y los obstáculos del mapa.
+* Implementación del seguimiento del jugador mediante la cámara.
+* Limitación de la cámara para evitar mostrar zonas fuera de los límites del mapa.
+
+### Modificado
+
+* Actualización de PantallaJuego para cargar y renderizar el mapa.
+* Actualización de Jugador para utilizar el mapa en la detección de colisiones.
+* Ajuste de los límites de movimiento del jugador según las dimensiones del mapa.
+
+## [1.4.1] - 2026-08-31
+
+### Modificado
+
+* Corrección de la configuración del mapa en Tiled.
+* Ajuste del tamaño del mapa a 30 tiles de ancho por 20 tiles de alto.
+* Ajuste del tamaño de los tiles para mantener una escala adecuada con el entorno del juego.
+
+## [1.4.0] - 2026-08-31
+
+### Agregado
+
+* Integración del mapa creado con Tiled como entorno principal de juego.
+* Implementación del renderizado del mapa mediante OrthogonalTiledMapRenderer.
+* Implementación de una cámara que sigue al jugador durante el desplazamiento.
+* Adaptación de los límites de movimiento del jugador al tamaño real del mapa.
+* Limitación de la cámara para evitar que muestre zonas fuera de los límites del mapa.
+
+### Modificado
+
+* Actualización de PantallaJuego para integrar el mapa y la cámara.
+* Actualización de Jugador para utilizar las dimensiones del mapa como límites de movimiento.
+
+## [1.3.0] - 2026-08-30
+
+### Agregado
+
+* Incorporación del spritesheet de ManBot como recurso gráfico del personaje.
+* Implementación de una animación mediante la clase Animation de LibGDX.
+* División del spritesheet en cinco cuadros de animación de 64x64 píxeles.
+* Incorporación de reproducción continua de los cuadros mediante el modo LOOP.
+* Incorporación del control del tiempo de animación mediante delta.
+
+### Modificado
+
+* Reemplazo de la representación temporal del jugador mediante ShapeRenderer por el spritesheet de ManBot.
+* Modificación del sistema de renderizado del jugador para utilizar SpriteBatch.
+* Integración de la animación del personaje con la cámara del juego.
+* Actualización de la liberación de recursos del jugador para liberar la textura utilizada por ManBot.
+
+## [1.2.0] - 2026-08-30
+
+### Agregado
+
+* Implementación de la clase Jugador para representar al personaje dentro del juego.
+* Implementación de la clase ControladorEntrada mediante InputAdapter de LibGDX.
+* Incorporación del movimiento del personaje mediante las teclas W, A, S y D.
+* Incorporación del movimiento diagonal mediante la combinación de teclas.
+* Implementación del movimiento independiente de los FPS utilizando delta.
+* Incorporación de una representación visual temporal del jugador mediante ShapeRenderer.
+* Incorporación de límites de movimiento para impedir que el jugador salga del área virtual del juego.
+
+### Modificado
+
+* Conexión del jugador con la pantalla de juego y el sistema de entrada de LibGDX.
+* Integración del jugador con la cámara del juego y el FitViewport.
+* Incorporación de la liberación de los recursos utilizados por el jugador.
+
+
+## [1.1.0] - 2026-08-30
+
+### Agregado
+* Implementación de la pantalla principal del juego.
+* Incorporación de la navegación entre el menú y la pantalla de juego.
+* Agregado del inicio de partida mediante la tecla ENTER.
+* Agregado de la opción para salir del juego mediante la tecla ESC.
+* Incorporación de un FitViewport para mantener la proporción de la interfaz al modificar el tamaño de la ventana.
+
+### Modificado
+* Organización de la pantalla de juego dentro del paquete pantallas.
+* Renombrado de PlaySreen a PantallaJuego.
+* Actualización de las referencias a la pantalla de juego en ManBotSurvivor.
+# Registro de Cambios (Changelog) - ManBot Survivor
+
+## [1.0.0] - 2026-07-15
+
+### Agregado
+* Creación y estructuración inicial del proyecto con LibGDX Liftoff (Java 21 y LibGDX 1.14.2).
+* Configuración del archivo `.gitignore` optimizado para LibGDX, Gradle e IDEs.
+* Inicialización del repositorio de control de versiones en GitHub y adición de colaboradores.
+* Creación del archivo `README.md` con la presentación del proyecto y comandos de ejecución.
+* Activación de la Wiki del proyecto configurando la propuesta principal en la página Home.
