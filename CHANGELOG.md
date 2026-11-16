@@ -1,3 +1,11 @@
+## [1.20.0] - 2026-11-16
+
+### Agregado
+
+* Incorporación de la clase ProtocolosRed que centraliza todos los mensajes UDP, el puerto (6413) y los separadores.
+* Incorporación de la clase DireccionRed para guardar la IP y el puerto de cada cliente.
+* Incorporación de la clase Cliente que asocia la dirección de red con el controlador de entrada del jugador.
+
 ## [1.19.0] - 2026-11-16
 
 ### Agregado
