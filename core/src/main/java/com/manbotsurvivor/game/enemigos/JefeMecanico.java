@@ -11,6 +11,7 @@ import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.badlogic.gdx.math.Rectangle;
 import com.manbotsurvivor.game.elementos.Mapa;
 import com.manbotsurvivor.game.jugador.Jugador;
+import com.manbotsurvivor.game.servidor.ProtocolosRed;
 
 public class JefeMecanico extends Enemigo {
 
@@ -73,6 +74,11 @@ public class JefeMecanico extends Enemigo {
        }
 
        hitbox.setPosition(posicionX, posicionY);
+   }
+   
+   @Override
+   public String obtenerTipo() {
+	   return ProtocolosRed.TIPO_JEFE;
    }
 
     public static void disponerTextura() {

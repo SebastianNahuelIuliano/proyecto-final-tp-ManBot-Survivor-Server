@@ -11,6 +11,7 @@ import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.manbotsurvivor.game.elementos.Mapa;
 import com.manbotsurvivor.game.jugador.Jugador;
 import com.badlogic.gdx.graphics.OrthographicCamera;
+import com.manbotsurvivor.game.servidor.ProtocolosRed;
 
 public class NanoBot extends Enemigo {
 
@@ -52,6 +53,11 @@ public class NanoBot extends Enemigo {
             ArrayList<Enemigo> enemigos) {
 
         super.actualizar(delta, jugador, enemigos);
+    }
+    
+    @Override
+    public String obtenerTipo() {
+    	return ProtocolosRed.TIPO_NANOBOT;
     }
 
     public static void disponerTextura() {

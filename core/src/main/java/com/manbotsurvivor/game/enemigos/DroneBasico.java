@@ -5,6 +5,7 @@ import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.Animation;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.manbotsurvivor.game.elementos.Mapa;
+import com.manbotsurvivor.game.servidor.ProtocolosRed;
 
 public class DroneBasico extends Enemigo {
 
@@ -40,6 +41,11 @@ public class DroneBasico extends Enemigo {
         return animacionDrone;
     }
 
+    @Override
+    public String obtenerTipo() {
+        return ProtocolosRed.TIPO_DRONE;
+    }
+    
     public static void disponerTextura() {
 
         if (texturaDrone != null) {

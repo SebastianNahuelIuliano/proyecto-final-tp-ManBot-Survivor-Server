@@ -4,6 +4,7 @@ import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.Animation;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.manbotsurvivor.game.elementos.Mapa;
+import com.manbotsurvivor.game.servidor.ProtocolosRed;
 
 
 public class RobotTanque extends Enemigo {
@@ -43,6 +44,11 @@ public class RobotTanque extends Enemigo {
         }
 
         return animacionTanque;
+    }
+    
+    @Override
+    public String obtenerTipo() {
+    	return ProtocolosRed.TIPO_TANQUE;
     }
 
     public static void disponerTextura() {

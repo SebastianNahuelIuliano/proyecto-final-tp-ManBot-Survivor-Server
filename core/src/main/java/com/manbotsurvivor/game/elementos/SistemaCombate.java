@@ -11,6 +11,7 @@ import com.manbotsurvivor.game.enemigos.Enemigo;
 import com.manbotsurvivor.game.jugador.Granada;
 import com.manbotsurvivor.game.jugador.Jugador;
 import com.manbotsurvivor.game.jugador.Laser;
+import com.manbotsurvivor.game.servidor.ProtocolosRed;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.Animation;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
@@ -334,6 +335,31 @@ public class SistemaCombate {
                 TextureRegion cuadroActual = animacionBomba.getKeyFrame(proyectil.tiempoAnimacionBomba);
 
                 batch.draw(cuadroActual, proyectil.x - 8, proyectil.y - 8, 16, 16);
+            }
+        }
+    }
+    
+ // Agrega los proyectiles de este jugador al mensaje "Proyectiles" que se envia a los clientes:
+    // Laser: L,x,y,numeroJugador   Granada: G,x,y   Explosion: X,x,y,radio,milisegundos
+    public void agregarProyectilesAlMensaje(StringBuilder mensaje, int numeroJugador) {
+
+        for (Proyectil proyectil : proyectiles) {
+
+            if (mensaje.length() > 0) {
+                mensaje.append(ProtocolosRed.SEPARADOR_ELEMENTO);
+            }
+
+            int x = Math.round(proyectil.x);
+            int y = Math.round(proyectil.y);
+
+            if (!proyectil.granada) {
+                mensaje.append(ProtocolosRed.PROYECTIL_LASER).append(',').append(x).append(',').append(y).append(',').append(numeroJugador);
+            } else if (!proyectil.explotado) {
+                mensaje.append(ProtocolosRed.PROYECTIL_GRANADA).append(',').append(x).append(',').append(y);
+            } else {
+                mensaje.append(ProtocolosRed.PROYECTIL_EXPLOSION).append(',').append(x).append(',').append(y)
+                        .append(',').append(Math.round(proyectil.radio))
+                        .append(',').append(Math.round(proyectil.tiempoExplosion * 1000));
             }
         }
     }

@@ -14,6 +14,10 @@ import com.manbotsurvivor.game.jugador.Jugador;
 
 public abstract class Enemigo {
 
+	// Cada enemigo tiene un id unico para que el cliente lo pueda identificar entre mensaje y mensaje
+    private static int siguienteId = 1;
+    private final int ID;
+	
     protected float posicionX;
     protected float posicionY;
     protected float velocidad;
@@ -36,7 +40,9 @@ public abstract class Enemigo {
 
     protected Enemigo(float posicionX, float posicionY, float velocidad, int vida, int daño, Mapa mapa, Animation<TextureRegion> animacionEnemigo) {
 
-        this.posicionX = posicionX;
+    	this.ID = siguienteId++;
+    	
+    	this.posicionX = posicionX;
         this.posicionY = posicionY;
         this.velocidad = velocidad;
         this.ancho = 32;
@@ -51,6 +57,14 @@ public abstract class Enemigo {
         this.tiempoAnimacion = 0;
     }
 
+    
+    public int obtenerId() {
+        return ID;
+    }
+
+    // Tipo que se envia al cliente para que sepa que sprite dibujar
+    public abstract String obtenerTipo();
+    
     public float obtenerPosicionX() {
         return posicionX;
     }
@@ -151,6 +165,7 @@ public abstract class Enemigo {
             if (hitbox.overlaps(hitboxJugador)) {
                 jugador.recibirDaño(DAÑO);
                 hizoDaño = true;
+                break; // La vida es compartida: un solo golpe aunque toque a los dos jugadores
             }
         }
 

@@ -1,3 +1,15 @@
+## [1.22.0] - 2026-11-16
+
+### Agregado
+
+* Incorporación de un id único para cada enemigo, para identificarlo en los mensajes de red.
+* Incorporación del método abstracto obtenerTipo() en Enemigo, implementado por cada tipo de enemigo.
+* Incorporación de agregarProyectilesAlMensaje en SistemaCombate para enviar láseres, granadas y explosiones.
+
+### Modificado
+
+* Un enemigo hace un solo golpe por ataque aunque toque a los dos jugadores.
+
 ## [1.21.0] - 2026-11-16
 
 ### Agregado
