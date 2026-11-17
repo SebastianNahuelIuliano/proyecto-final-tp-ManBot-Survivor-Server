@@ -1,3 +1,10 @@
+## [1.23.1] - 2026-11-16
+
+### Modificado
+
+* Se actualizó el README con las instrucciones del servidor en red.
+* Se unificó la versión de gradle.properties con la del changelog.
+
 ## [1.23.0] - 2026-11-16
 
 ### Agregado
