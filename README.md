@@ -87,6 +87,15 @@ gradlew.bat lwjgl3:run
 
 ./gradlew lwjgl3:run
 
+## 🌐 Servidor en red (UDP)
+Este repositorio es el **servidor** de ManBot Survivor. Ejecuta toda la lógica de la partida y envía el estado a los dos clientes.
+
+* Protocolo: UDP, puerto **6413**.
+* Los clientes encuentran el servidor por **broadcast**, sin escribir la IP.
+* Generar el ejecutable: `gradlew.bat lwjgl3:jar` → `lwjgl3/build/libs/ManBotSurvivor-Server-1.23.1.jar`
+* Ejecutar: `java -jar ManBotSurvivor-Server-1.23.1.jar` y elegir **INICIAR SERVIDOR**.
+* Si Windows Defender pregunta, permitir Java en redes privadas.
+
 ### 📈 Estado Actual del Proyecto
 Fase: Desarrollando el producto final, juego completo "Manbot Survivor".
 
