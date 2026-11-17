@@ -1,3 +1,25 @@
+## [1.23.0] - 2026-11-16
+
+### Agregado
+
+* Incorporación de VidaCompartida: la vida de los dos jugadores es compartida, como indica el documento del proyecto.
+* La experiencia es compartida: cuando cualquiera recoge un chip, los dos suben de nivel juntos.
+* Selección de mejoras simultánea: el tiempo se detiene hasta que los dos eligen.
+* Id de selección en GestorProgresion para ignorar mejoras repetidas o atrasadas.
+* Envío del estado de la partida, jugadores, selecciones, enemigos, proyectiles y chips 20 veces por segundo.
+* Sincronización de conexiones: si un jugador se desconecta el otro sigue solo, y puede reconectarse.
+* Reinicio de la partida sin cerrar el servidor.
+* Pantalla de espera con la IP del servidor, el puerto, los jugadores conectados y la cuenta regresiva.
+
+### Modificado
+
+* PantallaJuego ejecuta toda la lógica del juego en el servidor y recibe las teclas por red.
+* Jugador incorpora el estado de conexión y la vida compartida.
+
+### Eliminado
+
+* Se eliminó SelectorMejoras del servidor (la selección se muestra en cada cliente).
+
 ## [1.22.0] - 2026-11-16
 
 ### Agregado

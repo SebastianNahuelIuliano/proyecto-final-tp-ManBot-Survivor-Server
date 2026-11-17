@@ -18,6 +18,10 @@ public class GestorProgresion {
 
     private boolean seleccionActiva;
 
+    // Cada seleccion tiene un id distinto. El cliente manda "Mejora_id_opcion":
+    // si el paquete llega repetido o atrasado, el id no coincide y se ignora.
+    private int idSeleccion;
+
     public GestorProgresion(
             Jugador jugador,
             SistemaCombate combate,
@@ -33,6 +37,7 @@ public class GestorProgresion {
             return;
         }
 
+        // El tiempo se detiene para los dos jugadores mientras alguno elige
         if (partida.estaEnCurso()) {
             partida.pausar();
         }
@@ -62,12 +67,14 @@ public class GestorProgresion {
         for (int i = 0; i < 3 && i < disponibles.size(); i++) {
             opciones.add(disponibles.get(i));
         }
+
+        idSeleccion++;
     }
 
-    public void elegir(int numero) {
-        if (!seleccionActiva
-                || numero < 1
-                || numero > opciones.size()) {
+    // La partida no se reanuda aca: la reanuda PantallaJuego cuando
+    // ninguno de los dos jugadores tiene una seleccion pendiente.
+    public void elegir(int idSeleccionRecibida, int numero) {
+        if (!seleccionActiva || idSeleccionRecibida != idSeleccion || numero < 1 || numero > opciones.size()) {
             return;
         }
 
@@ -79,9 +86,13 @@ public class GestorProgresion {
         if (jugador.hayNivelPendiente()) {
             generarOpciones();
             seleccionActiva = true;
-        } else if (partida.estaPausada()) {
-            partida.reanudar();
         }
+    }
+
+    // Si el jugador se desconecta mientras elige, se cancela para no dejar la partida pausada
+    public void cancelarSeleccion() {
+        seleccionActiva = false;
+        opciones.clear();
     }
 
     private void aplicar(Mejora mejora) {
@@ -109,6 +120,10 @@ public class GestorProgresion {
 
     public boolean haySeleccionActiva() {
         return seleccionActiva;
+    }
+
+    public int obtenerIdSeleccion() {
+        return idSeleccion;
     }
 
     public List<Mejora> obtenerOpciones() {

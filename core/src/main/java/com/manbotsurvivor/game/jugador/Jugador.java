@@ -22,8 +22,9 @@ public class Jugador {
 	private int experienciaNecesaria = 100;
 	private int nivelesPendientes = 0;
 	private int enemigosEliminados;
-	private int vida;
-	private final int VIDA_MAXIMA;
+	private final VidaCompartida vidaEquipo;
+	private boolean conectado;
+	private boolean moviendose;
 	
 	private float limiteMapaAncho;
 	private float limiteMapaAlto;
@@ -35,7 +36,7 @@ public class Jugador {
 	private ControladorEntrada controladorEntrada;
 	private Mapa mapa;
 	
-	public Jugador(float posicionX, float posicionY, float velocidad, ControladorEntrada controladorEntrada, float limiteMapaAncho, float limiteMapaAlto, Mapa mapa) {
+	public Jugador(float posicionX, float posicionY, float velocidad, ControladorEntrada controladorEntrada, float limiteMapaAncho, float limiteMapaAlto, Mapa mapa, VidaCompartida vidaEquipo) {
 
 	    this.posicionX = posicionX;
 	    this.posicionY = posicionY;
@@ -48,8 +49,9 @@ public class Jugador {
 	    this.alto = 32;
 	    this.experiencia = 0;
 	    this.enemigosEliminados = 0;
-	    this.VIDA_MAXIMA = 100;
-	    this.vida = VIDA_MAXIMA;
+	    this.vidaEquipo = vidaEquipo;
+	    this.conectado = true;
+	    this.moviendose = false;
 	    
 	    texturaJugador = new Texture("manbot.png");
 
@@ -134,32 +136,48 @@ public class Jugador {
 	}
 	
 	public void recibirDaño(int daño) {
-	    vida -= daño;
-
-	    if (vida < 0) {
-	        vida = 0;
-	    }
-	    
+	    vidaEquipo.recibirDaño(daño);
 	}
 	
 	public int obtenerVida() {
-	    return vida;
+	    return vidaEquipo.obtenerVida();
 	}
 	
+	
 	public boolean estaVivo() {
-	    return vida > 0;
+		return conectado && vidaEquipo.estaViva();
 	}
 	
 	public int obtenerVidaMaxima() {
-	    return VIDA_MAXIMA;
+	    return vidaEquipo.obtenerVidaMaxima();
 	}
 	
 	public void curar(int cantidad) {
-	    if (cantidad <= 0) {
-	        return;
-	    }
-
-	    vida = Math.min(VIDA_MAXIMA, vida + cantidad);
+	    vidaEquipo.curar(cantidad);
+	}
+	
+	public boolean estaConectado() {
+	    return conectado;
+	}
+	
+	public void desconectar() {
+	    conectado = false;
+	    moviendose = false;
+	    controladorEntrada.aplicarTeclasRemotas(false, false, false, false);
+	}
+	
+	public void reconectar(float nuevaPosicionX, float nuevaPosicionY) {
+	    conectado = true;
+	    posicionX = nuevaPosicionX;
+	    posicionY = nuevaPosicionY;
+	}
+	
+	public boolean estaMoviendose() {
+	    return moviendose;
+	}
+	
+	public boolean estaMirandoDerecha() {
+	    return mirandoDerecha;
 	}
 	
 	public void aumentarVelocidad(float cantidad) {
@@ -202,6 +220,7 @@ public class Jugador {
 	public void actualizar(float delta) {
 		
 		if (!estaVivo()) {
+			moviendose = false;
 	        return;
 	    }
 
@@ -241,9 +260,9 @@ public class Jugador {
 	        movimientoY = movimientoY / longitudMovimiento * velocidad * delta;
 	    }
 
-	    boolean estaMoviendose = movimientoX != 0 || movimientoY != 0;
+	    moviendose = movimientoX != 0 || movimientoY != 0;
 
-	    if (estaMoviendose) {
+	    if (moviendose) {
 	        tiempoAnimacion += delta;
 	    } else {
 	        tiempoAnimacion = 0;

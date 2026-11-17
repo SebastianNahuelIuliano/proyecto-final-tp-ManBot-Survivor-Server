@@ -53,20 +53,30 @@ public class GestorEntidades {
 
             ChipEnergia chip = iterador.next();
 
-            for (Jugador jugador : jugadores) {
+            if (algunJugadorTocaElChip(chip)) {
 
-                if (!jugador.estaVivo()) {
-                    continue;
-                }
-
-                if (chip.hayColision(jugador.obtenerPosicionX(), jugador.obtenerPosicionY(), jugador.obtenerAncho(), jugador.obtenerAlto())) {
-
+                for (Jugador jugador : jugadores) {
                     jugador.ganarExperiencia(chip.obtenerExperiencia());
-
-                    iterador.remove();
-                    break;
                 }
+
+                iterador.remove();
             }
         }
+    }
+
+    private boolean algunJugadorTocaElChip(ChipEnergia chip) {
+
+        for (Jugador jugador : jugadores) {
+
+            if (!jugador.estaVivo()) {
+                continue;
+            }
+
+            if (chip.hayColision(jugador.obtenerPosicionX(), jugador.obtenerPosicionY(), jugador.obtenerAncho(), jugador.obtenerAlto())) {
+                return true;
+            }
+        }
+
+        return false;
     }
 }
