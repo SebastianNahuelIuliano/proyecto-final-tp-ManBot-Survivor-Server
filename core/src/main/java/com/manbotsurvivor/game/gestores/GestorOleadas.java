@@ -13,6 +13,13 @@ import com.manbotsurvivor.game.jugador.Jugador;
 
 public class GestorOleadas {
 
+    private static final float SEGUNDOS_POR_NIVEL = 60f;
+    private static final int ENEMIGOS_BASE = 8;
+    private static final int ENEMIGOS_POR_NIVEL = 4;
+    private static final float CRECIMIENTO_VIDA = 1.15f;
+    private static final float AUMENTO_VELOCIDAD = 0.05f;
+    private static final float FACTOR_VELOCIDAD_MAXIMO = 1.6f;
+
     private final List<Enemigo> enemigos;
     private final List<Jugador> jugadores;
     private final Mapa mapa;
@@ -87,18 +94,23 @@ public class GestorOleadas {
         esperandoSiguienteOleada = false;
         tiempoEntreOleadas = 0f;
 
-        int nivelDificultad = (int) (partida.obtenerTiempoEnJuego() / 120f) + 1;
-        
-        int cantidad = 5 + nivelDificultad * 2;
+        int nivelDificultad = (int) (partida.obtenerTiempoEnJuego() / SEGUNDOS_POR_NIVEL) + 1;
 
-        float dificultad = 1f + (nivelDificultad - 1) * 0.1f;
+        int cantidad = ENEMIGOS_BASE + nivelDificultad * ENEMIGOS_POR_NIVEL;
+
+        float factorVida = (float) Math.pow(CRECIMIENTO_VIDA, nivelDificultad - 1);
+        float factorVelocidad = Math.min(
+                FACTOR_VELOCIDAD_MAXIMO,
+                1f + (nivelDificultad - 1) * AUMENTO_VELOCIDAD);
+
+        int separacionTanques = nivelDificultad >= 4 ? 4 : 7;
 
         for (int i = 0; i < cantidad; i++) {
             float[] posicion = buscarPosicionEnemigo();
 
             Enemigo enemigo;
 
-            if (i % 7 == 6) {
+            if (i % separacionTanques == separacionTanques - 1) {
                 enemigo = new RobotTanque(posicion[0], posicion[1], 20, mapa);
                 
             } else if (i % 2 == 0) {
@@ -109,7 +121,7 @@ public class GestorOleadas {
                 
             }
 
-            enemigo.aumentarDificultad(dificultad);
+            enemigo.aumentarDificultad(factorVida, factorVelocidad);
             enemigos.add(enemigo);
         }
     }

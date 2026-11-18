@@ -1,3 +1,9 @@
+## [1.23.2] - 2026-11-17
+
+### Modificado
+
+* Se actualizó el sistema de oleadas.
+
 ## [1.23.1] - 2026-11-16
 
 ### Modificado
